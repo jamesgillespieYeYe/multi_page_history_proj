@@ -1,0 +1,618 @@
+{
+    "functions": [
+        {
+            "name": "point",
+            "fargs": [0,0],
+            "fname":"",
+            "desc": "Draw a point",
+            "list":[
+                {
+                    "function": "point((2,2))",
+                    "jname": "point",
+                    "name": "A",
+                    "args": [1, 2],
+                    "farg": [0,1]
+                }
+            ]
+        },
+        {
+            "name": "circle",
+            "fargs": [0,0,0,0],
+            "desc": "Draw a circle centered at a point, through another point",
+            "list": [
+                {
+                    "function": "point(1, 2)",
+                    "jname": "point",
+                    "args": [0, 0],
+                    "farg": [0, 1],
+                    "name": "P"
+                },
+                {
+                    "function": "point(2, 1)",
+                    "jname": "point",
+                    "args": [1,1],
+                    "farg": [2, 3],
+                    "name": "Q"
+                },
+                {
+                    "function":"circle((0, 0), (0, 2))",
+                    "jname" : "circle", 
+                    "args" : ["P", "Q"],
+                    "farg" :[],
+                    "name": "A"
+                }
+            ],
+            "fname": "circle()"
+        },
+        {
+            "name": "segment",
+            "fargs": [0,0,0,0],
+            "desc": "Draw a line segment connecting two points",
+            "list": [
+                {
+                    "function": "point(1, 2)",
+                    "jname": "point",
+                    "args": [0, 0],
+                    "farg": [0, 1],
+                    "name": "P"
+                },
+                {
+                    "function": "point(2, 1)",
+                    "jname": "point",
+                    "args": [1,1],
+                    "farg": [2, 3],
+                    "name": "Q"
+                },
+                {
+                    "function":"segment((0, 0), (0, 2))",
+                    "jname" : "segment", 
+                    "args" : ["P", "Q"],
+                    "farg" :[],
+                    "name": "A"
+                }
+            ],
+            "fname": "segment"
+        },
+        {
+            "name": "intersection_line_line",
+            "fargs": [0,0,0,0,0,0,0,0],
+            "desc": "Take the intersection of two lines",
+            "list": [
+                {
+                    "jname": "!segment",
+                    "args": [-1, -1, 1, 1],
+                    "farg": [0, 1, 2, 3],
+                    "name": "L"
+                },
+                {
+                    "jname": "!segment",
+                    "args": [-1, 1, 1, -1],
+                    "farg": [4, 5, 6, 7],
+                    "name": "M"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["L", "M"],
+                    "farg": [],
+                    "name": "R"
+                }
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "intersection_circle_line",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "",
+            "list": [
+                {
+                    "jname": "!circle",
+                    "args": [-1, -1, 1, 1],
+                    "farg": [0, 1, 2, 3],
+                    "name": "L"
+                },
+                {
+                    "jname": "!segment",
+                    "args": [-5, 5, 5, -4],
+                    "farg": [4, 5, 6, 7],
+                    "name": "M"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["L", "M"],
+                    "farg": [],
+                    "name": ["R", "F"]
+                }
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "intersection_circle_circle",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "",
+            "list": [
+                {
+                    "jname": "!circle",
+                    "args": [-1, 0, 1, 1],
+                    "farg": [0, 1, 2, 3],
+                    "name": "L"
+                },
+                {
+                    "jname": "!circle",
+                    "args": [1, 0, 0, 0],
+                    "farg": [4, 5, 6, 7],
+                    "name": "M"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["L", "M"],
+                    "farg": [],
+                    "name": ["R", "F"]
+                }
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "Prop I",
+            "fargs": [0,0,0,0],
+            "desc": "\"Given a finite straight line, describe an equilateral triangle\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-1, 0],
+                    "farg": [0, 1],
+                    "name": "A"
+                },
+                {
+                    "jname": "point",
+                    "args": [1, 0],
+                    "farg": [2, 3],
+                    "name": "B"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["A", "B"],
+                    "farg": [],
+                    "name": "L"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["A", "B"],
+                    "farg": [],
+                    "name": "K"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["B", "A"],
+                    "farg": [],
+                    "name": "F"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["K", "F"],
+                    "farg": [],
+                    "name": ["I", "J"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["I", "A"],
+                    "farg": [],
+                    "name": "U"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["I", "B"],
+                    "farg": [],
+                    "name": "V"
+                }
+
+
+
+            ],
+            "fname": ""
+        },
+        {
+            "name": "Prop I (Flipped)",
+            "fargs": [0,0,0,0],
+            "desc": "\"Given a finite straight line, describe an equilateral triangle\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-1, 0],
+                    "farg": [0, 1],
+                    "name": "A"
+                },
+                {
+                    "jname": "point",
+                    "args": [1, 0],
+                    "farg": [2, 3],
+                    "name": "B"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["A", "B"],
+                    "farg": [],
+                    "name": "L"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["A", "B"],
+                    "farg": [],
+                    "name": "K"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["B", "A"],
+                    "farg": [],
+                    "name": "F"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["K", "F"],
+                    "farg": [],
+                    "name": ["I", "J"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["J", "A"],
+                    "farg": [],
+                    "name": "U"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["J", "B"],
+                    "farg": [],
+                    "name": "V"
+                }
+
+
+
+            ],
+            "fname": ""
+        },
+        {
+            "name": "Prop II",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"From a given point, draw a straight line equal to a given finite straight line\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [2.5, 2],
+                    "farg": [0,1],
+                    "name": "P"
+                },
+                {
+                    "jname": "point",
+                    "args": [2, 1],
+                    "farg": [0,1],
+                    "name": "Q"
+                },
+                {
+                    "jname": "point",
+                    "args": [0, 0],
+                    "farg": [4, 5],
+                    "name": "C"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["C", "Q"],
+                    "farg": [],
+                    "name":"L"
+                },
+                {
+                    "jname": "!Prop I",
+                    "args": ["P", "Q"],
+                    "farg": [0,1,2,3],
+                    "name": ["I:M"]
+                },
+                {
+                    "jname": "circle",
+                    "args": ["Q", "C"],
+                    "farg": [],
+                    "name":"Z"
+                },
+                {
+                    "jname": "lineR",
+                    "args": ["M", "Q"],
+                    "farg": [],
+                    "name":"R"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["R", "Z"],
+                    "farg": [],
+                    "name":["G", "H"]
+                },
+                {
+                    "jname": "circle",
+                    "args": ["M", "H"],
+                    "farg": [],
+                    "name":"J"
+                },
+                {
+                    "jname": "lineR",
+                    "args": ["M", "P"],
+                    "farg": [],
+                    "name":"O"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["O", "J"],
+                    "farg": [],
+                    "name":["W", "E"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["P", "E"],
+                    "farg": [],
+                    "name":"T"
+                }
+                
+
+                
+
+            ],
+            "fname": ""
+        },
+        {
+            "name": "Prop III",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"From the greater of two given straight lines, cut off a part equal to the other\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [0, 0],
+                    "farg": [0, 1, 2, 3],
+                    "name": "y"
+                },
+                {
+                    "jname": "point",
+                    "args": [4, 0],
+                    "farg": [4, 5, 6, 7],
+                    "name": "B"
+                },
+                {
+                    "jname": "point",
+                    "args": [-5, -2],
+                    "farg": [4, 5, 6, 7],
+                    "name": "i"
+                },
+                {
+                    "jname": "point",
+                    "args": [-3, -2],
+                    "farg": [4, 5, 6, 7],
+                    "name": "n"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["y", "B"],
+                    "farg": [],
+                    "name": "L"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["i", "n"],
+                    "farg": [],
+                    "name": "M"
+                },
+                {
+                    "jname": "!Prop II",
+                    "args": ["y", "n", "i"],
+                    "farg": [],
+                    "name": ["E:U"]
+                },
+                {
+                    "jname": "circle",
+                    "args": ["y", "U"],
+                    "farg": [],
+                    "name": "w"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["L", "w"],
+                    "farg": [],
+                    "name": ["s", "d"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["y", "d"],
+                    "farg": [],
+                    "name": "r"
+                }
+                
+
+            ],
+            "fname": ""
+        },
+        {
+            "name": "Prop IX",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"Bisect a given rectilinear angle\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [0, 5],
+                    "farg": [0, 1],
+                    "name": "a"
+                },
+                {
+                    "jname": "point",
+                    "args": [-3, 0],
+                    "farg": [2, 3],
+                    "name": "b"
+                },
+                {
+                    "jname": "point",
+                    "args": [6, -5],
+                    "farg": [4, 5],
+                    "name": "c"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["a", "b"],
+                    "farg": [],
+                    "name": "l"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["a", "c"],
+                    "farg": [],
+                    "name": "f"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["a", "b"],
+                    "farg": [],
+                    "name": "k"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["f", "k"],
+                    "farg": [],
+                    "name": ["i", "v"]
+                },
+                {
+                    "jname": "!Prop I",
+                    "args": ["b", "v"],
+                    "farg": [0,1,2,3],
+                    "name": ["I:M"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["a", "M"],
+                    "farg": [],
+                    "name": "f"
+                }
+
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "Prop X",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"Bisect a given finite straight line (no line of slope zero or I die!)\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-2, 0],
+                    "farg": [0, 1],
+                    "name": "z"
+                },
+                {
+                    "jname": "point",
+                    "args": [2, 1],
+                    "farg": [2, 3],
+                    "name": "v"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["z", "v"],
+                    "farg": [2, 3],
+                    "name": "x"
+                },
+                {
+                    "jname": "!Prop I",
+                    "args": ["v", "z"],
+                    "farg": [2, 3],
+                    "name": ["J:j"]
+                },
+                {
+                    "jname": "!Prop IX",
+                    "args": ["j", "z", "v"],
+                    "farg": [2, 3],
+                    "name": "l"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["l", "x"],
+                    "farg": [2, 3],
+                    "name": "O"
+                }
+                
+
+                
+
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "Prop XI",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"From a given point in a given straight line, draw a perpendicular\"\nNote 1: Euclid used Prop 3 to cut the segment vp = vk, while I use a circle\nNote 2: The completion of the equilateral triangle in step 8 is not necessary",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-2, 0],
+                    "farg": [0, 1],
+                    "name": "z"
+                },
+                {
+                    "jname": "point",
+                    "args": [1, 0],
+                    "farg": [2, 3],
+                    "name": "v"
+                },
+                {
+                    "jname": "point",
+                    "args": [7, 0],
+                    "farg": [2, 3],
+                    "name": "x"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["z", "x"],
+                    "farg": [2, 3],
+                    "name": "s"
+                },
+                {
+                    "jname": "point",
+                    "args": [3, 0],
+                    "farg": [2, 3],
+                    "name": "k"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["v", "k"],
+                    "farg": [2, 3],
+                    "name": "c"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["s", "c"],
+                    "farg": [2, 3],
+                    "name": ["p", "q"]
+                },
+                {
+                    "jname": "!Prop I (Flipped)",
+                    "args": ["p", "k"],
+                    "farg": [2, 3],
+                    "name": ["J:j"]
+                }, 
+                {
+                    "jname": "segment",
+                    "args": ["j", "v"],
+                    "farg": [2, 3],
+                    "name": "r"
+                }
+
+
+                
+
+                
+
+            ],
+            "fname": "intersection"
+        },
+        
+        {
+            "name": "reset",
+            "desc": "",
+            "list": [],
+            "fname": "",
+            "fargs": []
+        }
+
+
+    ]
+
+
+}
