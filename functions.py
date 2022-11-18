@@ -1,7 +1,8 @@
 import math
 import sympy as sym
 #(Point Shape, Point Shape)
-def circle(alist,style=False):
+def circle(alist,style=False, opacity=1):
+    print("style: ", style)
     passing_through = []
     center = []
     center.append(alist[0].shape['x0'])
@@ -11,6 +12,8 @@ def circle(alist,style=False):
     r = math.sqrt((passing_through[0] - center[0])** 2 + (passing_through[1] - center[1])** 2)
     rref = (center[0] + r, center[1] + r)
     lref = (center[0] - r, center[1] - r)
+    color_string = 'rgba(0, 128, 255, '
+    color_string += str(opacity) + ")"
     ret = {
     "type": "circle",
     "xref": "x",
@@ -19,7 +22,7 @@ def circle(alist,style=False):
     "y0": lref[1], 
     "x1": rref[0], 
     "y1": rref[1],
-    "line_color": "LightSeaGreen",
+    "line_color": color_string,
     }
     if (style == True):
         ret['line_dash'] = 'dot'
@@ -54,7 +57,7 @@ def solve(shapeA, shapeB, x, y):
     return sol
             
 
-def intersection(alist, style=False):
+def intersection(alist, style=False, opacity=1):
     A = alist[0]
     B = alist[1]
     xCor = -100
@@ -72,20 +75,23 @@ def intersection(alist, style=False):
         y = sym.Symbol('y')
         sols = solve(A.shape, B.shape, x, y)
         if (len(sols) == 1):
-            return point([float(sols[0][0]), float(sols[0][1])])
+            return point([float(sols[0][0]), float(sols[0][1])], style, opacity)
         else:
             ret = []
             for s in sols:
-                ret.append(point([float(s[0]), float(s[1])]))
+                ret.append(point([float(s[0]), float(s[1])],style, opacity))
             return ret
 
     return point([xCor,yCor])
 
 #(Point Shape, Point Shape)
-def segment(alist, style=False):
+def segment(alist, style=False, opacity=1):
     #print("line: alist: ", alist)
+    print("opacity: ", opacity)
     P = alist[0]
     Q = alist[1]
+    color_string = 'rgba(255, 0, 0, '
+    color_string += str(opacity) + ")"
     ret = {
         "type": "line",
         "xref": "x", 
@@ -94,13 +100,13 @@ def segment(alist, style=False):
         "y0": P.shape['y0'],
         "x1": Q.shape['x0'],
         "y1": Q.shape['y0'],
-        "line_color": "Red"
+        "line_color": color_string
     }
     if (style == True):
         ret['line_dash'] = 'dot'
     return ret
 
-def lineR(alist, style=False):
+def lineR(alist, style=False, opacity=1):
     seg = segment(alist, style=False)
     x = sym.Symbol('x')
     eq = equation(seg, x)
@@ -124,8 +130,10 @@ def lineR(alist, style=False):
 
 
 #(x, y)
-def point(P, style=False):
+def point(P, style=False, opacity=1):
     off = .05
+    color_string = 'rgba(122, 0, 122, '
+    color_string += str(opacity) + ")"
     ret =  {
         "type": "line", #type is line so it actually shows up on graph
         "xref": "x", 
@@ -134,6 +142,6 @@ def point(P, style=False):
         "y0": P[1],
         "x1": P[0] + off, #^
         "y1": P[1] + off,
-        "line_color": "Blue"
+        "line_color": color_string
     }
     return ret

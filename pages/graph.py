@@ -191,7 +191,9 @@ def replace(global_list, new):
             global_list[i] = new
             return 0
     return -1
-def inner_exec(command, figure, global_list, next_id, custom_args, overrides=False, dashed=False):
+
+opacity_modifier = 2
+def inner_exec(command, figure, global_list, next_id, custom_args, overrides=False, dashed=False, opacity=1):
     objects = []
     if command != '':
         construction = find_entry(command)
@@ -244,9 +246,9 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
             if jname[0] != '!':
                 fhandle = getattr(funcs, jname)
                 if dashed == True:
-                    ret = fhandle(args, True)
+                    ret = fhandle(args, True, opacity)
                 else:
-                    ret = fhandle(args)
+                    ret = fhandle(args, False, opacity)
                 if (type(flist[i]['name']) == list):
                     if len(ret) != len(flist[i]['name']):
                         raise Exception("Number of objects returned does not match number expected")
@@ -272,12 +274,12 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
                 if type(args[0]) == NamedShape:
                     #Override case
                     #We want to "overwrite" the first len(args) shapes with our shapes
-                    next_id = inner_exec(jname[1:len(jname)], figure, global_list, next_id, args, True, True)
+                    next_id = inner_exec(jname[1:len(jname)], figure, global_list, next_id, args, True, True, opacity/opacity_modifier)
                     
                 else:
                     #Not overriding case
                     #exit()
-                    next_id = inner_exec(jname[1:len(jname)], figure, global_list, next_id, args)
+                    next_id = inner_exec(jname[1:len(jname)], figure, global_list, next_id, args, False, False, opacity/opacity_modifier)
 
                 # print("printing here")
                 # for e in global_list:
