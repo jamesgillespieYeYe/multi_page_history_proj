@@ -5,10 +5,10 @@ import os
 dash.register_page(__name__)
 
 layout = html.Div(children=[
-    html.H1(children='This is our Archive page'),
+    html.H1(children='Documents Page'),
 
     html.Div(children='''
-        This is our Archive page content.
+        Documents
     '''),
     #html.Iframe(src="https://docs.google.com/document/d/e/2PACX-1vSB0XVIcy4sIFhtbb3opECAP5GSMm-K9lAoOsJxg-KYsZRMneISm_dAnZ-s_gkKVNt1N8bj91th7uFR/pub?embedded=true")
     #html.Iframe(src="/mnt/c/test_pages/pages/assets/mypdf.pdf"),

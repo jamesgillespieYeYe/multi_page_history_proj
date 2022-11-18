@@ -213,7 +213,7 @@
         {
             "name": "Prop I (Flipped)",
             "fargs": [0,0,0,0],
-            "desc": "\"Given a finite straight line, describe an equilateral triangle\"",
+            "desc": "\"Given a line and a point not on the line, draw a perpendicular through that point\"",
             "list": [
                 {
                     "jname": "point",
@@ -595,6 +595,75 @@
                 }
 
 
+                
+
+                
+
+            ],
+            "fname": "intersection"
+        },
+        {
+            "name": "Prop XII",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"Bisect a given finite straight line (no line of slope zero or I die!)\"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-2, 0],
+                    "farg": [0, 1],
+                    "name": "z"
+                },
+                {
+                    "jname": "point",
+                    "args": [2, 1],
+                    "farg": [2, 3],
+                    "name": "v"
+                },
+                {
+                    "jname": "segment",
+                    "args": ["z", "v"],
+                    "farg": [2, 3],
+                    "name": "x"
+                },
+                {
+                    "jname": "point",
+                    "args": [0, 1,2],
+                    "farg": [2, 3],
+                    "name": "f"
+                },
+                {
+                    "jname": "point",
+                    "args": [0.2, 0.2],
+                    "farg": [2, 3],
+                    "name": "q"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["f", "q"],
+                    "farg": [2, 3],
+                    "name": "b"
+                }, 
+                {
+                    "jname": "intersection",
+                    "args": ["b", "x"],
+                    "farg": [2, 3],
+                    "name": ["r", "e"]
+                },
+                {
+                    "jname": "!Prop X",
+                    "args": ["r", "e"],
+                    "farg": [2, 3],
+                    "name": ["O:s"]
+                },
+                {
+                    "jname": "segment",
+                    "args": ["s", "f"],
+                    "farg": [2, 3],
+                    "name": "q"
+                }
+
+                
+                
                 
 
                 

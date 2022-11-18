@@ -41,7 +41,7 @@ def find_entry(name):
 
 
 layout = html.Div(children=[
-    html.H4('Jimbo\'s Demo', style={'textAlign':'center'}),
+    html.H4('Construction Demos', style={'textAlign':'center'}),
     #  html.Div(
     #     [
     #         html.Div(

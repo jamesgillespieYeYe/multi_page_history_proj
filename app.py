@@ -2,9 +2,10 @@ from dash import Dash, html, dcc
 import dash
 
 app = Dash(__name__, use_pages=True)
+server = app.server
 
 app.layout = html.Div([
-	html.H1('Multi-page app with Dash Pages'),
+	html.H1('History of Mathematics Final Project'),
 
     html.Div(
         [
