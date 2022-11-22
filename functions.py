@@ -1,5 +1,14 @@
 import math
 import sympy as sym
+'''
+This contains implementations for constructions Euclid
+took as postulates: 
+You may draw a circle centered at one point, passing through another
+You may draw a line segment from one point to another
+You may extend a line segment indefinitely 
+(A postulate that he uses, but does not explicitly state, is that
+you may take the intersection of two lines)
+'''
 #(Point Shape, Point Shape)
 def circle(alist,style=False, opacity=1):
     print("style: ", style)
