@@ -106,6 +106,27 @@ def segment(alist, style=False, opacity=1):
         ret['line_dash'] = 'dot'
     return ret
 
+def segment_color(alist, style=False, opacity=1):
+    print("alist: ", alist)
+    P = alist[0]
+    Q = alist[1]
+    color = alist[2][1:len(alist[2])]
+    dash = alist[3][1:len(alist[3])]
+    print("color: ", color)
+    ret = {
+        "type": "line",
+        "xref": "x", 
+        "yref": "y", 
+        "x0": P.shape['x0'],
+        "y0": P.shape['y0'],
+        "x1": Q.shape['x0'],
+        "y1": Q.shape['y0'],
+        "line_color": color
+    }
+    if (dash != "None"):
+        ret['line_dash'] = dash
+    return ret
+
 def lineR(alist, style=False, opacity=1):
     seg = segment(alist, style=False)
     x = sym.Symbol('x')

@@ -341,6 +341,13 @@
                     "name":["W", "E"]
                 },
                 {
+                    "jname": "intersection",
+                    "args": ["O", "J"],
+                    "farg": [],
+                    "name":["W1", "U"]
+                },
+
+                {
                     "jname": "segment",
                     "args": ["P", "E"],
                     "farg": [],
@@ -671,7 +678,162 @@
             ],
             "fname": "intersection"
         },
-        
+        {
+            "name": "Prop XXII",
+            "fargs": [0,0,0,0,0,0],
+            "desc": "\"Given three lines, construct a triangle whose sides are respectively equal to the given lines \"",
+            "list": [
+                {
+                    "jname": "point",
+                    "args": [-2, 0],
+                    "farg": [0, 1],
+                    "name": "q"
+                },
+                {
+                    "jname": "point",
+                    "args": [7, 0],
+                    "farg": [0, 1],
+                    "name": "p"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["p", "q", "#black", "#dash"],
+                    "farg": [0, 1],
+                    "name": "qp"
+                },
+                {
+                    "jname": "point",
+                    "args": [-9, -4],
+                    "farg": [0, 1],
+                    "name": "t"
+                },
+                {
+                    "jname": "point",
+                    "args": [-5, -4],
+                    "farg": [0, 1],
+                    "name": "g"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["t", "g", "#black", "#None"],
+                    "farg": [0, 1],
+                    "name": "tg"
+                },
+                {
+                    "jname": "point",
+                    "args": [0, -5],
+                    "farg": [0, 1],
+                    "name": "bb"
+                },
+                {
+                    "jname": "point",
+                    "args": [2, -3],
+                    "farg": [0, 1],
+                    "name": "br"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["bb", "br", "#blue", "#None"],
+                    "farg": [0, 1],
+                    "name": "bbbr"
+                },
+                {
+                    "jname": "!Prop III",
+                    "args": ["q", "p", "t", "g"],
+                    "farg": [0, 1],
+                    "name": ["d:b"]
+                },
+                {
+                    "jname": "point",
+                    "args": [1, -2],
+                    "farg": [0, 1],
+                    "name": "rr"
+                },
+                {
+                    "jname": "point",
+                    "args": [2, -1],
+                    "farg": [0, 1],
+                    "name": "re"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["rr", "re", "#red", "#None"],
+                    "farg": [0, 1],
+                    "name": "rrre"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["q", "b", "#black", "#None"],
+                    "farg": [0, 1],
+                    "name": "qb"
+                },
+                {
+                    "jname": "!Prop II",
+                    "args": ["q", "br", "bb"],
+                    "farg": [0, 1],
+                    "name": ["E:u"]
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["q", "u", "#blue", "#None"],
+                    "farg": [0, 1],
+                    "name": "qb"
+                },
+                {
+                    "jname": "!Prop II",
+                    "args": ["b", "rr", "re"],
+                    "farg": [0, 1],
+                    "name": ["E:z"]
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["b", "z", "#red", "#None"],
+                    "farg": [0, 1],
+                    "name": "qb"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["b", "z"],
+                    "farg": [0, 1],
+                    "name": "c1"
+                },
+                {
+                    "jname": "circle",
+                    "args": ["q", "u"],
+                    "farg": [0, 1],
+                    "name": "c2"
+                },
+                {
+                    "jname": "intersection",
+                    "args": ["c1", "c2"],
+                    "farg": [0, 1],
+                    "name": ["h","o"]
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["q", "o", "#blue", "#None"],
+                    "farg": [0, 1],
+                    "name": "qo"
+                },
+                {
+                    "jname": "segment_color",
+                    "args": ["b", "o", "#red", "#None"],
+                    "farg": [0, 1],
+                    "name": "bo"
+                }
+
+
+                
+                
+                
+                
+                
+
+                
+
+            ],
+            "fname": "intersection"
+        },
         {
             "name": "reset",
             "desc": "",

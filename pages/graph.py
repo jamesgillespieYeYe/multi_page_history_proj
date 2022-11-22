@@ -192,7 +192,7 @@ def replace(global_list, new):
             return 0
     return -1
 
-opacity_modifier = 2
+opacity_modifier = 3
 def inner_exec(command, figure, global_list, next_id, custom_args, overrides=False, dashed=False, opacity=1):
     objects = []
     if command != '':
@@ -240,7 +240,7 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
                     #print("APPENDING ", custom_args[farg])
                     args.append(custom_args[farg])
             for j in range(0, len(args)):
-                if (type(args[j]) == str):
+                if (type(args[j]) == str and args[j][0] != '#'):
                     args[j] = find_object(objects, args[j])
                 #print("args: ", args)
             if jname[0] != '!':
@@ -296,12 +296,28 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
                 if type(flist[i]['name']) == list:
                     for item in flist[i]['name']:
                         originalName = item[0]
+                        print("Original name: ", originalName)
+                        print("New name: ", item[2])
                         originalShape = None
+                        print("======================global list========================")
+                        print(global_list)
+                        print("=========================================================")
+                        # for i in range(0, len(global_list)):
+                        #     currAsDict = json.loads(global_list[i])
+                        #     if currAsDict['name'] == originalName:
+                                
+                        #         newShape = NamedShape(item[2], currAsDict['shape'], currAsDict['id'])
+                        #         objects.append(newShape)
+                        #Find the item
+                        lastFound = None
                         for i in range(0, len(global_list)):
                             currAsDict = json.loads(global_list[i])
                             if currAsDict['name'] == originalName:
-                                newShape = NamedShape(item[2], currAsDict['shape'], currAsDict['id'])
-                                objects.append(newShape)
+                                lastFound = currAsDict
+
+                        newShape = NamedShape(item[2], lastFound['shape'], lastFound['id'])
+                        objects.append(newShape)
+                        
 
                 else:   #Append last item created to local list
                     retAsDict = json.loads(global_list[len(global_list) - 1])
