@@ -681,7 +681,7 @@
         {
             "name": "Prop XXII",
             "fargs": [0,0,0,0,0,0],
-            "desc": "\"Given three lines, construct a triangle whose sides are respectively equal to the given lines \"",
+            "desc": "\"Given three lines, construct a triangle whose sides are respectively equal to the given lines\n A triangle will be made out of line segments tg, bbbr, rrre on the segment qp \"",
             "list": [
                 {
                     "jname": "point",
@@ -738,12 +738,6 @@
                     "name": "bbbr"
                 },
                 {
-                    "jname": "!Prop III",
-                    "args": ["q", "p", "t", "g"],
-                    "farg": [0, 1],
-                    "name": ["d:b"]
-                },
-                {
                     "jname": "point",
                     "args": [1, -2],
                     "farg": [0, 1],
@@ -760,6 +754,12 @@
                     "args": ["rr", "re", "#red", "#None"],
                     "farg": [0, 1],
                     "name": "rrre"
+                },
+                {
+                    "jname": "!Prop III",
+                    "args": ["q", "p", "t", "g"],
+                    "farg": [0, 1],
+                    "name": ["d:b"]
                 },
                 {
                     "jname": "segment_color",

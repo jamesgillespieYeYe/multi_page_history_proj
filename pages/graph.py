@@ -299,9 +299,7 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
                         print("Original name: ", originalName)
                         print("New name: ", item[2])
                         originalShape = None
-                        print("======================global list========================")
-                        print(global_list)
-                        print("=========================================================")
+            
                         # for i in range(0, len(global_list)):
                         #     currAsDict = json.loads(global_list[i])
                         #     if currAsDict['name'] == originalName:
