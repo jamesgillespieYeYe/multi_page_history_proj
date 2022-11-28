@@ -202,7 +202,8 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
         construction = find_entry(command)
         
         flist = construction['list']
-        oldFlist = copy.deepcopy(flist)
+        newflist = copy.deepcopy(flist)
+        flist = newflist
         
         startIndex = 0
         
@@ -330,12 +331,10 @@ def inner_exec(command, figure, global_list, next_id, custom_args, overrides=Fal
                     figure.add_shape(ret.shape)
                     annotate(figure, ret)
                 
-        if (overrides == True):
-            #print("Here!!!!")
-            #print("oldflist: ", oldFlist)
-            for i in range(0, len(flist)):
-                #print("Replacing ", flist[i], "with", oldFlist[i])
-                flist[i] = oldFlist[i]
+        #if (overrides == True):
+           
+            #for i in range(0, len(flist)):
+                #flist[i] = oldFlist[i]
         figure.update_yaxes(
         scaleanchor = "x",
         scaleratio = 1,
